@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bank Sampah Digital - Frontend (Web)
 
-## Getting Started
+Aplikasi web portal untuk sistem Bank Sampah Digital yang menghubungkan fitur **Nasabah** dan **Admin Unit**, dibangun sebagai solusi pengelolaan sampah daur ulang dan sistem penukaran poin.
 
-First, run the development server:
+Aplikasi ini dikembangkan untuk mengonsumsi API Backend ("Sumber Data: API disediakan panitia") sesuai dengan dokumen kontrak spesifikasi ujian.
 
+## Framework & Tools yang Digunakan
+
+Sesuai dengan ketentuan "Tools Utama: NextJS/ReactJS/VueJS atau framework pilihan Anda", project ini menggunakan arsitektur modern berikut:
+
+- **Framework**: Next.js 15 (App Router) + React 19
+- **Bahasa**: TypeScript
+- **Styling**: Tailwind CSS (Native styling, tanpa template eksternal)
+- **Icons**: Lucide React
+- **API Fetching**: Axios (Terkonfigurasi dengan Interceptors untuk otomatisasi JWT Token)
+- **State Management**: React Context API (Untuk autentikasi global/sesi user)
+
+## Persyaratan Sistem (Environment)
+Pastikan environment lokal Anda telah terinstal:
+- Node.js (Versi 18.x atau terbaru disarankan)
+- npm (Node Package Manager)
+
+## Cara Menjalankan Aplikasi
+
+Ikuti langkah-langkah di bawah ini untuk menjalankan aplikasi di *environment* lokal Anda:
+
+### 1. Ekstrak / Buka Folder Project
+Pastikan Anda berada di root direktori project ini (folder yang memuat file `package.json`).
+
+### 2. Konfigurasi Endpoint API (Base URL)
+Buat file `.env` di root direktori project (jika belum ada) dan masukkan Base URL API yang telah diberikan panitia saat ujian dimulai. 
+Buka file `.env` dan konfigurasikan seperti contoh berikut:
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000/api/v1
+```
+*(Ganti `http://localhost:5000/api/v1` dengan URL API sebenarnya dari panitia)*
+
+### 3. Install Dependensi
+Buka terminal/command prompt di direktori project, lalu jalankan perintah:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. Jalankan Development Server
+Setelah proses instalasi selesai, jalankan server pengembangan (*development server*):
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 5. Akses Aplikasi
+Buka browser Anda dan kunjungi URL berikut:
+```text
+http://localhost:3000
+```
+- Aplikasi web sudah siap diakses.
+- Tampilan aplikasi sudah disesuaikan agar responsif (*mobile-friendly*) hingga skala layar laptop/tablet sesuai instruksi panduan (Gambar Kerja Bagian II).
+- Seluruh form dan interaksi data telah diintegrasikan langsung (*100% consuming endpoint*) tanpa menggunakan *dummy data*.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Dibuat untuk memenuhi kualifikasi pengumpulan Berkas Ujian: Dokumen singkat (framework dan cara menjalankan).*
