@@ -31,7 +31,7 @@ Pastikan Anda berada di root direktori project ini (folder yang memuat file `pac
 Buat file `.env` di root direktori project (jika belum ada) dan masukkan Base URL API yang telah diberikan panitia saat ujian dimulai. 
 Buka file `.env` dan konfigurasikan seperti contoh berikut:
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:5000/api/v1
+NEXT_PUBLIC_API_BASE_URL=http://localhost:5000/api/v1
 ```
 *(Ganti `http://localhost:5000/api/v1` dengan URL API sebenarnya dari panitia)*
 
