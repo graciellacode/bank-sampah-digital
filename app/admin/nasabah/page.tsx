@@ -135,7 +135,6 @@ function EditNasabahForm({
             namaLengkap: nasabah.namaNasabah,
             noTelepon: nasabah.telp,
             alamat: nasabah.alamat,
-            tanggalLahir: "",
         },
     });
 
@@ -158,9 +157,6 @@ function EditNasabahForm({
             </FormField>
             <FormField label="No. Telepon" error={errors.noTelepon?.message}>
                 <input type="tel" {...register("noTelepon")} className={`${inputClass} rounded-xl`} />
-            </FormField>
-            <FormField label="Tanggal Lahir" error={errors.tanggalLahir?.message}>
-                <input type="date" {...register("tanggalLahir")} className={`${inputClass} rounded-xl`} />
             </FormField>
             <FormField label="Foto Profile" optional>
                 <label className="flex items-center gap-2 border border-dashed border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-500 cursor-pointer hover:border-emerald-500 hover:bg-emerald-50/50 transition-all">

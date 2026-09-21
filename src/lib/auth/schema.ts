@@ -52,7 +52,6 @@ export const updateNasabahAdminSchema = z.object({
     namaLengkap: z.string().min(1, "Nama lengkap wajib diisi"),
     noTelepon: z.string().min(8, "Nomor telepon tidak valid"),
     alamat: z.string().min(1, "Alamat wajib diisi"),
-    tanggalLahir: z.string().min(1, "Tanggal lahir wajib diisi"),
 });
 export type UpdateNasabahAdminFormValues = z.infer<typeof updateNasabahAdminSchema>;
 

@@ -25,6 +25,6 @@ export interface UpdateNasabahPayload {
     namaLengkap: string;
     noTelepon: string;
     alamat: string;
-    tanggalLahir: string;
+    tanggalLahir?: string;
     foto?: File;
 }
