@@ -54,7 +54,23 @@ export function getApiErrorMessage(error: unknown): string {
         const err = error as AxiosError<ApiErrorResponse>;
 
         if (err.response?.data?.message) {
-            return err.response.data.message;
+            const rawMessage = err.response.data.message;
+
+            // Pengecekan khusus error Foreign Key Constraint (relasi data di database)
+            if (rawMessage.includes("Foreign key constraint violated")) {
+                if (rawMessage.includes("hadiahId") || rawMessage.includes("hadiah")) {
+                    return "Hadiah tidak dapat dihapus karena sudah memiliki riwayat penukaran oleh nasabah.";
+                }
+                if (rawMessage.includes("kategori") || rawMessage.includes("kategoriSampahId")) {
+                    return "Kategori sampah tidak dapat dihapus karena sudah memiliki riwayat transaksi penyetoran.";
+                }
+                if (rawMessage.includes("nasabah") || rawMessage.includes("nasabahId")) {
+                    return "Data nasabah tidak dapat dihapus karena memiliki riwayat transaksi aktif.";
+                }
+                return "Data tidak dapat dihapus karena masih terhubung dengan data transaksi lain.";
+            }
+
+            return rawMessage;
         }
         if (err.code === "ERR_NETWORK") {
             return "Tidak dapat terhubung ke server. Periksa koneksi internet Anda.";
